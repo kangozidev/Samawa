@@ -55,7 +55,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure spReloadClick(Sender: TObject);
     procedure spSampleClick(Sender: TObject);
-    procedure spSaveClick(Sender: TObject);
+
   private
 
   protected
@@ -301,13 +301,6 @@ begin
   CopyFile(PChar(a),PChar(n),true);
   opendocument(n);
 end;
-
-procedure TFImpor.spSaveClick(Sender: TObject);
-begin
-
-end;
-
-
 
 
 end.
