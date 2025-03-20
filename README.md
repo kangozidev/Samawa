@@ -5,6 +5,6 @@ Samawa adalah aplikasi desktop yang digunakan untuk mengirim pesan WA secara mas
 Link Download Aplikasi :
 https://drive.google.com/uc?export=download&id=1De6T-pjANJEWThD4N6ymbr3MaViY4j3w
 
-( Password Zip hubungi pengembanbang ) 
+( Password Zip hubungi Kami ) 
 
 ![image](https://github.com/user-attachments/assets/32b5ae08-a2e4-4390-ba07-622f709dbc55)
