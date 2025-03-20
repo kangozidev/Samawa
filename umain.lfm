@@ -3,7 +3,7 @@ object FMain: TFMain
   Height = 1049
   Top = -8
   Width = 1442
-  Caption = 'SamaWA [ Sapa Melalui WA ] 0.7.5.005 "GREEN" [ 25 Maret 2024 ] '
+  Caption = 'SamaWA [ Sapa Melalui WA ] 0.7.6.001 "BLUE" [ 20 Maret 2025 ] '
   ClientHeight = 1049
   ClientWidth = 1442
   Color = 16251886
@@ -283,7 +283,7 @@ object FMain: TFMain
     BevelOuter = bvNone
     ClientHeight = 969
     ClientWidth = 100
-    Color = 9341489
+    Color = 5602626
     Font.CharSet = ANSI_CHARSET
     Font.Color = clWhite
     Font.Height = -14
@@ -1362,6 +1362,7 @@ object FMain: TFMain
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
       Layout = blGlyphTop
+      Visible = False
       OnClick = spFullscreenClick
       ParentFont = False
     end
@@ -3886,6 +3887,7 @@ object FMain: TFMain
       end>
   end
   object tmLoopSolution: TTimer
+    Enabled = False
     OnTimer = tmLoopSolutionTimer
     Left = 896
     Top = 224

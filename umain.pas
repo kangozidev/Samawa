@@ -650,7 +650,7 @@ begin
      f.free;
    end;
     }
- FSplash.ShowModal;
+// FSplash.ShowModal;
 end;
 
 procedure TFMain.TampilPengumunan;
@@ -1069,6 +1069,7 @@ procedure TFMain.LoadAwal;
 var
   f : string;
   prox : TstringList;
+  sender:TObject;
 begin
   //
   // Membuat new class dari Form-Form yang akan digunakan bersama MainForm
@@ -1108,7 +1109,7 @@ begin
   ZKoneksi.Connected:=true;
   ZKoneksi.AutoCommit:=true;
 
-  CekAct;
+  //CekAct;
 
   DCetak.open;
   ZRegister.Open;
@@ -1134,30 +1135,19 @@ begin
   limit_time:=0;
 
 // Tampilkan Form "Splash"
-  picAttach.Picture:= ImageBlank.Picture;
+//  picAttach.Picture:= ImageBlank.Picture;
 // Tampilkan Main Form Maximized/FullScreen
   WindowState:=wsFullScreen;
 // Jalankan Prosedur Resume
   Resume;
-  LoadSendXY;
+  //LoadSendXY;
   // Set Bahasa
 
   SetIndonesia;
 
-    // Catat Nomor Versi
-  //CreateVersion;
-   Chromium1.LoadURL('https://web.whatsapp.com');
-  // Cek
-  {
-  if AcceptMe = true then
-   exit
-  else
-  begin
-   ShowMessage('Jalankan Aplikasi dari Start_Samawa.exe');
-   close;
-   Application.Terminate;
-  end;
-  }
+  ckTemplateClick(sender);
+
+    FSplash.ShowModal;
 
 
 end;
@@ -1449,6 +1439,8 @@ procedure TFMain.Chromium1AfterCreated(Sender: TObject; const browser: ICefBrows
 begin
   // Now the browser is fully initialized we can send a message to the main form to load the initial web page.
   PostMessage(Handle, CEF_AFTERCREATED, 0, 0);
+  //  Chromium1.LoadURL('https://web.whatsapp.com');
+ // Chromium1.LoadURL(PCHar(ExtractFilePath(Application.ExeName) + 'index.html'));
 end;
 
 
@@ -1833,10 +1825,14 @@ begin
       else
       begin
         progsend.Position:= DataSend2.RecNo;
-        ShowPesan('Proses Pengiriman Selesai') ;
+
         //Catat(StrToInt(ESuccessSend.Text));
         esend.Text := '1' ;
-        Chromium1.LoadURL('web.whatsapp.com');
+
+        ShowPesan('Proses Pengiriman Selesai') ;
+        tmLoopSolution.Enabled:=false;
+        tmLoopCekCode.Enabled:=false;
+                Chromium1.LoadURL('web.whatsapp.com');
       end;
    end;
 end;
@@ -1861,6 +1857,7 @@ begin
 
   // Jalankan Prosedur LoadAwal
   LoadAwal;
+
 end;
 
 
@@ -2604,7 +2601,12 @@ end;
 
 procedure TFMain.spJamuClick(Sender: TObject);
 begin
-  FJamu.ShowModal;
+   if Dialogs.MessageDlg('Jika Samawa Masih Bisa mengirim Otomatis , Samawa Tidak perlu Minum Jamu , Lanjtkan ?',
+    mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
+    begin
+    FJamu.ShowModal;
+
+    end;
 end;
 
 procedure TFMain.spKeyClick(Sender: TObject);
